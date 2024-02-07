@@ -12,31 +12,31 @@ function Musica() {
   }, []);
 
   return (
-    <div>
-      <article className="mt-32">
-        <h1 className="text-2xl font-bold justify-center flex">Musica</h1>
-        <div className="mt-6 ml-24 grid grid-cols-4 md:grid-cols-3 gap-6">
+    <>
+      <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-12 my-32">
+        <div className="-m-1 flex flex-wrap md:-m-2">
           {cancion.map((canciones, index) => {
             return (
               <div
                 key={index}
-                className="hover:scale-105 transform transition duration-300 ease-in-out"
+                className="flex w-1/3 flex-wrap hover:scale-105 transform transition duration-300 ease-in-out"
               >
-                <Link to={`/reproducir/${canciones.id}`}>
-                  <img
-                    src={canciones.archivo_img}
-                    className="h-auto max-w-full rounded-lg "
-                  />
-                  <h3 className="flex justify-center font-bold text-2xl">
-                    {canciones.titulo}
-                  </h3>
-                </Link>
+                <div className="w-full p-1 md:p-2">
+                  <Link to={`/reproducir/${canciones.id}`}>
+                    <img
+                      src={canciones.archivo_img}
+                      alt="canciones"
+                      className="block h-full w-full rounded-lg object-cover object-center"
+                    />
+                    <h3 className="text-center mt-2">{canciones.titulo}</h3>
+                  </Link>
+                </div>
               </div>
             );
           })}
         </div>
-      </article>
-    </div>
+      </div>
+    </>
   );
 }
 

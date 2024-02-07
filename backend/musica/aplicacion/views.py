@@ -24,4 +24,5 @@ def artista_detail(request, artista_id):
 
 def albun_detail(request, albun_id):
     albun = get_object_or_404(Albun, pk=albun_id)
-    return render(request, 'albun_detail.html', {'albun': albun})
+    canciones = albun.cancion_set.all()  # Obtener todas las canciones asociadas a este álbum
+    return render(request, 'albun_detail.html', {'albun': albun, 'canciones': canciones})
