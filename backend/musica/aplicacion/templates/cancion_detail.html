@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Detalles de la Canción</title>
+  </head>
+  <body>
+    <h1>{{ cancion.titulo }}</h1>
+    <p>
+      Artista:
+      <a href="{% url 'aplicacion:artista_detail' cancion.artista.id %}"
+        >{{ cancion.artista.nombre }}</a
+      >
+    </p>
+    <p>
+      Álbum:
+      <a href="{% url 'aplicacion:albun_detail' cancion.albun.id %}"
+        >{{ cancion.albun.titulo }}</a
+      >
+    </p>
+    <p>Duración: {{ cancion.duracion }}</p>
+    
+    <audio controls>
+      <source src="{{ cancion.archivo_mp3.url }}" type="audio/mp3">
+      Tu navegador no soporta la etiqueta de audio.
+    </audio>
+  </body>
+</html>

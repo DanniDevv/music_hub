@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Tu Aplicación</title>
+  </head>
+  <body>
+    <h1>Listado de Canciones</h1>
+    <ul>
+      {% for cancion in canciones %}
+      <li>
+        <a href="{% url 'aplicacion:cancion_detail' cancion.id %}"
+          >{{ cancion.titulo }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h1>Listado de Artistas</h1>
+    <ul>
+      {% for artista in artistas %}
+      <li>
+        <a href="{% url 'aplicacion:artista_detail' artista.id %}"
+          >{{ artista.nombre }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h1>Listado de Álbumes</h1>
+    <ul>
+      {% for albun in albunes %}
+      <li>
+        <a href="{% url 'aplicacion:albun_detail' albun.id %}"
+          >{{ albun.titulo }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
